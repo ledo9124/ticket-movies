@@ -44,18 +44,28 @@
                         <span class="cate">welcome</span>
                         <h2 class="title">to Boleto </h2>
                     </div>
-                    <form class="account-form">
+                    <form class="account-form" action="{{ route('register.save') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="email1">Email<span>*</span></label>
-                            <input type="text" placeholder="Enter Your Email" id="email1" required>
+                            <input type="email" placeholder="Enter Your Email" name="email" id="email1">
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="pass1">Password<span>*</span></label>
-                            <input type="password" placeholder="Password" id="pass1" required>
+                            <input type="password" placeholder="Password" name="password" id="pass1">
+                            @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="pass2">Confirm Password<span>*</span></label>
-                            <input type="password" placeholder="Password" id="pass2" required>
+                            <input type="password" placeholder="Password" name="password_confirmation" id="pass2">
+                            @error('password_confirmation')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group checkgroup">
                             <input type="checkbox" id="bal" required checked>
@@ -67,7 +77,7 @@
                         </div>
                     </form>
                     <div class="option">
-                        Already have an account? <a href="sign-in.html">Login</a>
+                        Already have an account? <a href="{{ route('login') }}">Login</a>
                     </div>
                     <div class="or"><span>Or</span></div>
                     <ul class="social-icons">

@@ -235,7 +235,38 @@
                 <div class="tab-area mb-30-none">
                     <div class="tab-item active">
                         <div class="owl-carousel owl-theme tab-slider">
-                            <div class="item">
+                            @foreach ($movies['results'] as $movie)
+                                <div class="item">
+                                    <div class="movie-grid">
+                                        <div class="movie-thumb c-thumb">
+                                            <a href="{{ route('movie.detail', ['id' => $movie["id"]]) }}">
+                                                <img src="https://image.tmdb.org/t/p/w200{{ $movie['poster_path'] }}"
+                                                    alt="movie">
+                                            </a>
+                                        </div>
+                                        <div class="movie-content bg-one">
+                                            <h5 class="title m-0">
+                                                <a href="{{ route('movie.detail', ['id' => $movie["id"]]) }}">{{ $movie['title'] }}</a>
+                                            </h5>
+                                            <ul class="movie-rating-percent">
+                                                <li>
+                                                    <div class="thumb">
+                                                        <img src="assets/images/movie/tomato.png" alt="movie">
+                                                    </div>
+                                                    <span class="content">{{ $movie['release_date'] }}</span>
+                                                </li>
+                                                <li>
+                                                    <div class="thumb">
+                                                        <img src="assets/images/movie/cake.png" alt="movie">
+                                                    </div>
+                                                    <span class="content">{{ $movie['vote_average'] }}%</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            {{-- <div class="item">
                                 <div class="movie-grid">
                                     <div class="movie-thumb c-thumb">
                                         <a href="#0">
@@ -346,7 +377,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="tab-item">

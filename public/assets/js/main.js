@@ -121,7 +121,7 @@
     $('.scrollToTop').on('click', function () {
       $('html, body').animate({
         scrollTop: 0
-      }, 500);
+      }, 100);
       return false;
     });
     // Header Sticky Here

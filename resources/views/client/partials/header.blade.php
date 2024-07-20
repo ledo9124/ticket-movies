@@ -4,26 +4,18 @@
             <div class="header-wrapper">
                 <div class="logo">
                     <a href="index-2.html">
-                        <img src="assets/images/logo/logo.png" alt="logo">
+                        <img src="{{ asset('assets/images/logo/logo.png') }}" alt="logo">
                     </a>
                 </div>
                 <ul class="menu">
                     <li>
-                        <a href="#0" class="active">Home</a>
-                        <ul class="submenu">
-                            <li>
-                                <a href="#0" class="active">Home One</a>
-                            </li>
-                            <li>
-                                <a href="index-3.html">Home Two</a>
-                            </li>
-                        </ul>
+                        <a href="{{ route('home') }}" class="active">Home</a>
                     </li>
                     <li>
-                        <a href="#0">movies</a>
-                        <ul class="submenu">
+                        <a href="{{ route('movie.grid') }}">movies</a>
+                        {{-- <ul class="submenu">
                             <li>
-                                <a href="movie-grid.html">Movie Grid</a>
+                                <a href="{{ route('movie.grid') }}">Movie Grid</a>
                             </li>
                             <li>
                                 <a href="movie-list.html">Movie List</a>
@@ -46,11 +38,11 @@
                             <li>
                                 <a href="popcorn.html">Movie Food</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     <li>
                         <a href="#0">events</a>
-                        <ul class="submenu">
+                        {{-- <ul class="submenu">
                             <li>
                                 <a href="events.html">Events</a>
                             </li>
@@ -66,11 +58,11 @@
                             <li>
                                 <a href="event-checkout.html">Event Checkout</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     <li>
                         <a href="#0">sports</a>
-                        <ul class="submenu">
+                        {{-- <ul class="submenu">
                             <li>
                                 <a href="sports.html">Sports</a>
                             </li>
@@ -83,7 +75,7 @@
                             <li>
                                 <a href="sports-checkout.html">Sport Checkout</a>
                             </li>
-                        </ul>
+                        </ul> --}}
                     </li>
                     <li>
                         <a href="#0">pages</a>
@@ -119,9 +111,20 @@
                     <li>
                         <a href="contact.html">contact</a>
                     </li>
-                    <li class="header-button pr-0">
-                        <a href="sign-up.html">join us</a>
-                    </li>
+                    @if (Route::has('login'))
+                        @guest
+                            <li class="header-button pr-0">
+                                <a href="{{ route('login') }}">join us</a>
+                            </li>
+                        @endguest
+                    @endif
+                    @if (Route::has('logout'))
+                        @auth
+                            <li>
+                                <a href="{{ route('logout') }}">Sign out</a>
+                            </li>
+                        @endauth
+                    @endif
                 </ul>
                 <div class="header-bar d-lg-none">
                     <span></span>

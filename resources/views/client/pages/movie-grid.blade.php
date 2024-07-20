@@ -4,35 +4,40 @@
     <div class="tab-area">
         <div class="tab-item active">
             <div class="row mb-10 justify-content-center">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="movie-grid">
-                        <div class="movie-thumb c-thumb">
-                            <a href="movie-details.html">
-                                <img src="assets/images/movie/movie01.jpg" alt="movie">
-                            </a>
-                        </div>
-                        <div class="movie-content bg-one">
-                            <h5 class="title m-0">
-                                <a href="movie-details.html">alone</a>
-                            </h5>
-                            <ul class="movie-rating-percent">
-                                <li>
-                                    <div class="thumb">
-                                        <img src="assets/images/movie/tomato.png" alt="movie">
-                                    </div>
-                                    <span class="content">88%</span>
-                                </li>
-                                <li>
-                                    <div class="thumb">
-                                        <img src="assets/images/movie/cake.png" alt="movie">
-                                    </div>
-                                    <span class="content">88%</span>
-                                </li>
-                            </ul>
+                @foreach ($paginator as $movie)
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="movie-grid">
+                            <div class="movie-thumb c-thumb">
+                                <a href="{{ route('movie.detail', ['id' => $movie["id"]]) }}">
+                                    <img src="https://image.tmdb.org/t/p/w200{{ $movie['poster_path'] }}" alt="movie">
+                                </a>
+                            </div>
+                            <div class="movie-content bg-one">
+                                <h5 class="title m-0">
+                                    <a href="{{ route('movie.detail', ['id' => $movie["id"]]) }}">{{ $movie['title'] }}</a>
+                                </h5>
+                                <ul class="movie-rating-percent">
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="assets/images/movie/tomato.png" alt="movie">
+                                        </div>
+                                        <span class="content">{{ $movie['release_date'] }}</span>
+                                    </li>
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="assets/images/movie/cake.png" alt="movie">
+                                        </div>
+                                        <span class="content">{{ $movie['vote_average'] }}%</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
+                @endforeach
+                <div class="container">
+                    {{ $paginator->links('pagination::bootstrap-5') }}
                 </div>
-                <div class="col-sm-6 col-lg-4">
+                {{-- <div class="col-sm-6 col-lg-4">
                     <div class="movie-grid">
                         <div class="movie-thumb c-thumb">
                             <a href="movie-details.html">
@@ -339,10 +344,10 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
-        <div class="tab-item">
+        {{-- <div class="tab-item">
             <div class="movie-area mb-10">
                 <div class="movie-list">
                     <div class="movie-thumb c-thumb">
@@ -1101,6 +1106,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection

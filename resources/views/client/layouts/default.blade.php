@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.animatedheadline.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-
+    {{-- @vite('resources/css/app.css') --}}
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 
     <title>Boleto - Online Ticket Booking Website HTML Template</title>
@@ -53,7 +53,6 @@
     <!-- ==========Newslater-Section========== -->
     @include('client.partials.footer')
     <!-- ==========Newslater-Section========== -->
-
 
     <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('assets/js/modernizr-3.6.0.min.js') }}"></script>

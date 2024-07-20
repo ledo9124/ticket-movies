@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/odometer.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/jquery.animatedheadline.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/odometer.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/nice-select.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/jquery.animatedheadline.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/main.css') }}">
 
-    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/images/favicon.png') }}" type="image/x-icon">
 
     <title>Boleto - Online Ticket Booking Website HTML Template</title>
 </head>
@@ -36,7 +36,7 @@
     <!-- ==========Preloader========== -->
 
     <!-- ==========Sign-In-Section========== -->
-    <section class="account-section bg_img" data-background="assets/images/account/account-bg.jpg">
+    <section class="account-section bg_img" data-background="/images/account/account-bg.jpg">
         <div class="container">
             <div class="padding-top padding-bottom">
                 <div class="account-area">
@@ -44,17 +44,24 @@
                         <span class="cate">hello</span>
                         <h2 class="title">welcome back</h2>
                     </div>
-                    <form class="account-form">
+                    <form class="account-form" method="POST" action="{{ route('login.action') }}">
+                        @csrf
                         <div class="form-group">
                             <label for="email2">Email<span>*</span></label>
-                            <input type="text" placeholder="Enter Your Email" id="email2" required>
+                            <input type="email" name="email" placeholder="Enter Your Email" id="email2" required>
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="pass3">Password<span>*</span></label>
-                            <input type="password" placeholder="Password" id="pass3" required>
+                            <input type="password" name="password" placeholder="Password" id="pass3" required>
+                            @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group checkgroup">
-                            <input type="checkbox" id="bal2" required checked>
+                            <input type="checkbox" name="remember" id="bal2" required checked>
                             <label for="bal2">remember password</label>
                             <a href="#0" class="forget-pass">Forget Password</a>
                         </div>
@@ -63,7 +70,7 @@
                         </div>
                     </form>
                     <div class="option">
-                        Don't have an account? <a href="sign-up.html">sign up now</a>
+                        Don't have an account? <a href="{{ route('register') }}">sign up now</a>
                     </div>
                     <div class="or"><span>Or</span></div>
                     <ul class="social-icons">
@@ -89,20 +96,20 @@
     </section>
     <!-- ==========Sign-In-Section========== -->
 
-    <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/modernizr-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/heandline.js') }}"></script>
-    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/js/magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
-    <script src="{{ asset('assets/js/countdown.min.js') }}"></script>
-    <script src="{{ asset('assets/js/odometer.min.js') }}"></script>
-    <script src="{{ asset('assets/js/viewport.jquery.js') }}"></script>
-    <script src="{{ asset('assets/js/nice-select.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('/js/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/js/heandline.js') }}"></script>
+    <script src="{{ asset('/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('/js/magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('/js/wow.min.js') }}"></script>
+    <script src="{{ asset('/js/countdown.min.js') }}"></script>
+    <script src="{{ asset('/js/odometer.min.js') }}"></script>
+    <script src="{{ asset('/js/viewport.jquery.js') }}"></script>
+    <script src="{{ asset('/js/nice-select.js') }}"></script>
+    <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 
 </html>

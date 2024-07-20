@@ -1329,7 +1329,7 @@ input[type="submit"] {
             align-items: center;
   }
   .header-wrapper .menu li {
-    padding: 5px 12px;
+    padding: 0px 12px;
     position: relative;
   }
   .header-wrapper .menu li a {
@@ -1338,6 +1338,9 @@ input[type="submit"] {
     font-weight: 700;
     text-transform: uppercase;
     padding: 5px;
+  }
+  .header-wrapper .menu li a.active {
+    padding: 10px 5px;
   }
   .header-wrapper .menu li .submenu {
     position: absolute;
@@ -1415,7 +1418,7 @@ input[type="submit"] {
     width: calc(100% - 10px);
     height: 2px;
     background: #31d7a9;
-    top: calc(100% + 30px);
+    top: calc(100% + 21px);
     position: absolute;
     content: "";
     -webkit-transform: scaleX(0);
@@ -1794,7 +1797,7 @@ input[type="submit"] {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 18, 50, 0.4);
+  background-color: rgba(0, 18, 50, 0.1);
 }
 
 @media (min-width: 992px) {
@@ -2999,9 +3002,18 @@ input[type="submit"] {
 .sports-grid .movie-content .title,
 .event-grid .movie-content .title,
 .movie-grid .movie-content .title {
-  padding: 23px 0;
+  padding: 12px 0;
+  font-size: 18px;
+  min-height: 80px;
   text-transform: capitalize;
   border-bottom: 1px dashed #11326f;
+}
+
+.sports-grid .movie-thumb img,
+.event-grid .movie-thumb img,
+.movie-grid .movie-thumb img { 
+  height: 435px;
+  object-fit: cover;
 }
 
 .sports-grid .movie-thumb,
