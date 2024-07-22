@@ -70,7 +70,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/contact-us', function() {
 //     return view('client.pages.contact-us');
 // });
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home1');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'register')->name('register');

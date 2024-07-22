@@ -43,7 +43,7 @@
     <!-- ==========Overlay========== -->
 
     <!-- ==========Header-Section========== -->
-    @include('client.partials.header')
+    @include('client.layouts.sections.header')
     <!-- ==========Header-Section========== -->
 
     <!-- ==========Content-Section========== -->
@@ -51,7 +51,7 @@
     <!-- ==========Content-Section========== -->
 
     <!-- ==========Newslater-Section========== -->
-    @include('client.partials.footer')
+    @include('client.layouts.sections.footer')
     <!-- ==========Newslater-Section========== -->
 
     <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>

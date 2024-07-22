@@ -52,6 +52,31 @@
       });
     // Wow js active
     new WOW().init();
+    //Toggle overlay menu user
+    $('#dropdownMenuButton').on('click', function() {
+      var isDropdownShown = $(this).next('.dropdown-menu').hasClass('show');
+      if (isDropdownShown) {
+        $('.dropdown-overlay').hide();
+      } else {
+        $('.dropdown-overlay').show();
+      }
+    });
+
+    $('.dropdown-overlay').on('click', function() {
+      $('.menu li a').first().click();
+      $('.dropdown-overlay').hide();
+    });
+
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('.dropdown').length) {
+        $('.dropdown-menu').removeClass('show');
+        $('.dropdown-overlay').hide();
+      }
+    });
+
+    $('.dropdown-menu').on('click', function(e) {
+      e.stopPropagation();
+    });
     //Faq
     $('.faq-wrapper .faq-title').on('click', function (e) {
       var element = $(this).parent('.faq-item');
@@ -87,7 +112,7 @@
       var menu = $(this).find("ul");
       var menupos = $(menu).offset();
       if (menupos.left + menu.width() > $(window).width()) {
-        var newpos = -$(menu).width();
+        var newpos = -$(menu).width()/1.5;
         menu.css({
           left: newpos
         });
@@ -483,3 +508,4 @@
     })
   });
 })(jQuery);
+
