@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('fullname')->default('');
             $table->string('number', 20)->default('');
             $table->string('password');
+            $table->string('address')->default('');
             $table->boolean('role')->default(false);
             $table->rememberToken();
             $table->timestamps();
