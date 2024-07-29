@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -89,3 +90,7 @@ Route::controller(HomeController::class)->group(
         Route::get('/movie-detail/{id}', 'movieDetail')->name('movie.detail');
     }
 );
+
+Route::resource('admin', DashboardController::class);
+Route::get('/admin-movie', [DashboardController::class , 'movieList'])->name('movie.list');
+Route::get('/admin-movie-form', [DashboardController::class , 'movieForm'])->name('movie.form');
