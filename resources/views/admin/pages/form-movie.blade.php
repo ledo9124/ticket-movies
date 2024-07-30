@@ -35,6 +35,31 @@
     <script src="{{ asset('assets/js/form-movie.js') }}"></script>
 @endsection
 
+@section('style')
+    <style>
+        .suggestion-movie {
+            right: -38px;
+            max-height: 28rem;
+        }
+
+        .twitter-typeahead {
+            flex: 1;
+        }
+
+        .poster-path {
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .movie-hover:hover {
+            background-color: rgba(0, 0, 0, .05);
+            /* Thay đổi màu nền khi hover */
+            color: #fff;
+            /* Thay đổi màu chữ khi hover */
+        }
+    </style>
+@endsection
+
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
@@ -45,14 +70,14 @@
                 <div class="card" style="min-height:550px">
                     <h5 class="card-header">Import movie from TMDB</h5>
                     <div class="card-body">
-                        <div id="search-movies" class="navbar-nav flex-row border rounded" style="position: relative;">
+                        <div id="search-movies" class="navbar-nav flex-row border rounded bg-white" style="position: relative;z-index:20">
                             <i class="ti ti-search ti-md me-2 cursor-pointer"
-                                style="position: absolute;top: 10px; left: 8px"></i>
+                                style="position: absolute;top: 10px; left: 8px;z-index:20;"></i>
                             <input type="text" id="input-movies" class="form-control container-xxl border-0"
                                 style="padding: 12px 40px;box-shadow: none;" placeholder="Search..."
                                 aria-label="Search..." />
                             <i class="ti ti-x ti-sm cursor-pointer px-2 d-none" id="close"
-                                style="line-height: 46.5px"></i>
+                                style="line-height: 46.5px;z-index:20;"></i>
                         </div>
                     </div>
                 </div>
